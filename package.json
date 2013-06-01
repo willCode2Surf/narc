@@ -1,0 +1,16 @@
+{ "name": "narc"
+, "description": "narc"
+, "tags": ["dom", "scrape", "notifications"]
+, "version": "0.1.0"
+, "author": "lkptrzk <lkptrzk@gmail.com>"
+, "main": "./main"
+, "repository":
+  { "type": "git"
+  , "url": "https://github.com/lkptrzk/narc.git"
+  }
+, "dependencies":
+  { "jquery": "*"
+  , "jsdom": "*"
+  , "request": "*"
+  }
+}
