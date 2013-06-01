@@ -4,7 +4,9 @@ var jsdom = require('jsdom').jsdom
 
 var routes = {
   "https://news.ycombinator.com": function ($) {
-    console.log($('.title a').text())
+    $('.title a').each(function (i, el) {
+      console.log(i + ' ' + $(el).text())
+    })
   }
 }
 
