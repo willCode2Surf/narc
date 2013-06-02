@@ -2,36 +2,36 @@ var jsdom = require('jsdom').jsdom
   , jquery = require('jquery')
   , request = require('request')
 
-var routes = {
-  "https://news.ycombinator.com": function ($) {
-    $('.title a').each(function (i, el) {
-      console.log(i + ' ' + $(el).text())
-    })
-  }
-}
+var narc = module.exports = function (config, url, test) {
 
-var scrape_single = function (url, cb) {
+  // Grab the page
+
   request(url, function (error, response, body) {
+
+    // Handle errors from the request
+
     if (error) {
       throw error
     } else if (response.statusCode !== 200) {
-      throw new Error('status not 200')
+      throw new Error('Status not 200')
     }
     
+    // Create a representation of the page
+    // for the instance of jQuery.
+
     var window = jsdom(body).createWindow()
       , $ = jquery.create(window)
 
-    cb.call(response, $)
+    // Call the test function,
+    // assigning `this` to the `response` argument.
+
+    var notification = test.call(response, $)
+
+    // Send notification if there is one.
+
+    if (notification !== false) {
+      console.log(notification)
+    }
   })
 }
-
-var scrape = function () {
-  for (var url in routes) {
-    if (routes.hasOwnProperty(url)) {
-      scrape_single(url, routes[url])
-    }
-  }
-}
-
-scrape()
 
