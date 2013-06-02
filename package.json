@@ -1,5 +1,5 @@
 { "name": "narc"
-, "description": "narc"
+, "description": "Text notifications from web scraping"
 , "tags": ["dom", "scrape", "twilio", "notifications"]
 , "version": "0.0.1"
 , "author": "lkptrzk <lkptrzk@gmail.com>"
