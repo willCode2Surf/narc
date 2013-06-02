@@ -1,7 +1,7 @@
 { "name": "narc"
 , "description": "narc"
-, "tags": ["dom", "scrape", "notifications"]
-, "version": "0.1.0"
+, "tags": ["dom", "scrape", "twilio", "notifications"]
+, "version": "0.0.1"
 , "author": "lkptrzk <lkptrzk@gmail.com>"
 , "main": "./narc.js"
 , "repository":
@@ -12,5 +12,6 @@
   { "jquery": "*"
   , "jsdom": "*"
   , "request": "*"
+  , "twilio": "*"
   }
 }

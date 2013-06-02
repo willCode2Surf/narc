@@ -1,4 +1,4 @@
-var narc = require('./main')
+var narc = require('./narc')
 
 // Specify the configuration file,
 // target page,
