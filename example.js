@@ -8,27 +8,18 @@ narc('./twilio.json', 'https://news.ycombinator.com', function ($) {
 
   // This example checks for polls on the front page of Hacker News.
 
-  function isPoll ($link) {
-    return /Poll: .*/.test( $link.text() )
-  }
-
-  var polls = [], $link
+  var poll_count = 0
   $('.title a').each(function (i, el) {
-    $link = $(el)
-    if (isPoll($link)) {
-      polls.push($link)
-    }
+    if (/Poll: .*/.test($(el).text())) poll_count++
   })
 
   // If the notification shouldn't be sent, return false.
   // Otherwise, return the content of the notification.
 
-  if (polls.length === 0) {
+  if (poll_count == 0) {
     return false
   } else {
-    return (
-      "There are " + polls.length + " new Hacker News polls"
-    )
+    return "There are " + poll_count + " new Hacker News polls"
   }
 })
 
