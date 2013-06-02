@@ -15,7 +15,7 @@ var narc = module.exports = function (config, url, test) {
     } else if (response.statusCode !== 200) {
       throw new Error('Status not 200')
     }
-    
+
     // Create a representation of the page
     // for the instance of jQuery.
 
